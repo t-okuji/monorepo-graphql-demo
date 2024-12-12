@@ -1,32 +1,40 @@
-import { useState } from "react";
+import { useQuery } from "urql";
+
 import "./main.css";
-import reactLogo from "./assets/react.svg";
-import FarmLogo from "./assets/logo.png";
+import Film from "./Film";
+import { graphql } from "../src/gql";
+
+const allFilmsWithVariablesQueryDocument = graphql(/* GraphQL */ `
+  query allFilmsWithVariablesQuery($first: Int!) {
+    allFilms(first: $first) {
+      edges {
+        node {
+          ...FilmItem
+        }
+      }
+    }
+  }
+`);
+
 export function Main() {
-  const [count, setCount] = useState(0);
+  // `data` is typed!
+  const [{ data }] = useQuery({
+    query: allFilmsWithVariablesQueryDocument,
+    variables: {
+      // variables are typed too!
+      first: 10,
+    },
+  });
 
   return (
-    <>
-      <div>
-        <a href="https://farmfe.org/" target="_blank">
-          <img src={FarmLogo} className="logo" alt="Farm logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Farm + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/main.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Farm and React logos to learn more
-      </p>
-    </>
+    <div className="App">
+      {data && (
+        <ul>
+          {data.allFilms?.edges?.map(
+            (e, i) => e?.node && <Film film={e?.node} key={`film-${i}`} />
+          )}
+        </ul>
+      )}
+    </div>
   );
 }
