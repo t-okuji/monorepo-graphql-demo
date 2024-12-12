@@ -2,24 +2,12 @@ import { useQuery } from "urql";
 
 import "./main.css";
 import Film from "./Film";
-import { graphql } from "../src/gql";
-
-const allFilmsWithVariablesQueryDocument = graphql(/* GraphQL */ `
-  query allFilmsWithVariablesQuery($first: Int!) {
-    allFilms(first: $first) {
-      edges {
-        node {
-          ...FilmItem
-        }
-      }
-    }
-  }
-`);
+import { AllFilmsWithVariablesQueryDocument } from "./gql/graphql";
 
 export function Main() {
   // `data` is typed!
   const [{ data }] = useQuery({
-    query: allFilmsWithVariablesQueryDocument,
+    query: AllFilmsWithVariablesQueryDocument,
     variables: {
       // variables are typed too!
       first: 10,
