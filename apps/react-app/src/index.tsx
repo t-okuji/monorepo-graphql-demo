@@ -4,8 +4,13 @@ import "./index.css";
 import { Client, Provider, cacheExchange, fetchExchange } from "urql";
 
 const client = new Client({
-  url: "https://swapi-graphql.netlify.app/.netlify/functions/index",
+  url: process.env.FARM_APPSYNC_URL ?? "",
   exchanges: [cacheExchange, fetchExchange],
+  fetchOptions: {
+    headers: {
+      "X-API-KEY": process.env.FARM_APPSYNC_KEY ?? "",
+    },
+  },
 });
 
 const container = document.querySelector("#root");

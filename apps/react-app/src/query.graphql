@@ -1,16 +1,9 @@
-query allFilmsWithVariablesQuery($first: Int!) {
-  allFilms(first: $first) {
-    edges {
-      node {
-        ...FilmItem
-      }
+query listMyModelTypeTables {
+  listMyModelTypeTables {
+    items {
+      id
+      name
+      age
     }
   }
-}
-
-fragment FilmItem on Film {
-  id
-  title
-  releaseDate
-  producers
 }

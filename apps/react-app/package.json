@@ -20,6 +20,7 @@
     "@farmfe/plugin-react": "^1.2.0",
     "@graphql-codegen/cli": "^5.0.3",
     "@parcel/watcher": "^2.5.0",
+    "@types/node": "^22.10.2",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "core-js": "^3.36.1",

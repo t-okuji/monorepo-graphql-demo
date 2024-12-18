@@ -14,7 +14,7 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  * Learn more about it here: https://the-guild.dev/graphql/codegen/plugins/presets/preset-client#reducing-bundle-size
  */
 const documents = {
-    "query allFilmsWithVariablesQuery($first: Int!) {\n  allFilms(first: $first) {\n    edges {\n      node {\n        ...FilmItem\n      }\n    }\n  }\n}\n\nfragment FilmItem on Film {\n  id\n  title\n  releaseDate\n  producers\n}": types.AllFilmsWithVariablesQueryDocument,
+    "query listMyModelTypeTables {\n  listMyModelTypeTables {\n    items {\n      id\n      name\n      age\n    }\n  }\n}": types.ListMyModelTypeTablesDocument,
 };
 
 /**
@@ -34,7 +34,7 @@ export function graphql(source: string): unknown;
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "query allFilmsWithVariablesQuery($first: Int!) {\n  allFilms(first: $first) {\n    edges {\n      node {\n        ...FilmItem\n      }\n    }\n  }\n}\n\nfragment FilmItem on Film {\n  id\n  title\n  releaseDate\n  producers\n}"): (typeof documents)["query allFilmsWithVariablesQuery($first: Int!) {\n  allFilms(first: $first) {\n    edges {\n      node {\n        ...FilmItem\n      }\n    }\n  }\n}\n\nfragment FilmItem on Film {\n  id\n  title\n  releaseDate\n  producers\n}"];
+export function graphql(source: "query listMyModelTypeTables {\n  listMyModelTypeTables {\n    items {\n      id\n      name\n      age\n    }\n  }\n}"): (typeof documents)["query listMyModelTypeTables {\n  listMyModelTypeTables {\n    items {\n      id\n      name\n      age\n    }\n  }\n}"];
 
 export function graphql(source: string) {
   return (documents as any)[source] ?? {};
