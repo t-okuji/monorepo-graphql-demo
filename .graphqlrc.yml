@@ -1,0 +1,2 @@
+schema: "./schema.graphql"
+documents: "./apps/react-app/src/**/*.{graphql,js,ts,jsx,tsx}"
