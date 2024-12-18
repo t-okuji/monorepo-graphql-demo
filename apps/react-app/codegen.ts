@@ -12,6 +12,22 @@ const config: CodegenConfig = {
   generates: {
     "./src/gql/": {
       preset: "client",
+      config: {
+        strictScalars: true,
+        useTypeImports: true,
+        skipTypename: true,
+        arrayInputCoercion: true,
+        avoidOptionals: {
+          field: true,
+          inputValue: false,
+          object: true,
+          defaultValue: false,
+        },
+        scalars: {
+          Date: "DateString",
+        },
+        enumsAsTypes: true,
+      },
     },
   },
 };

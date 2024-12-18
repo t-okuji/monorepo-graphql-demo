@@ -1,5 +1,5 @@
 /* eslint-disable */
-import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/core';
+import type { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/core';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
@@ -37,10 +37,9 @@ export type ModelSizeInput = {
 };
 
 export type Mutation = {
-  __typename?: 'Mutation';
-  createMyModelTypeTable?: Maybe<MyModelTypeTable>;
-  deleteMyModelTypeTable?: Maybe<MyModelTypeTable>;
-  updateMyModelTypeTable?: Maybe<MyModelTypeTable>;
+  createMyModelTypeTable: Maybe<MyModelTypeTable>;
+  deleteMyModelTypeTable: Maybe<MyModelTypeTable>;
+  updateMyModelTypeTable: Maybe<MyModelTypeTable>;
 };
 
 
@@ -59,22 +58,19 @@ export type MutationUpdateMyModelTypeTableArgs = {
 };
 
 export type MyModelTypeTable = {
-  __typename?: 'MyModelTypeTable';
-  age?: Maybe<Scalars['Int']['output']>;
+  age: Maybe<Scalars['Int']['output']>;
   id: Scalars['String']['output'];
   name: Scalars['String']['output'];
 };
 
 export type MyModelTypeTableConnection = {
-  __typename?: 'MyModelTypeTableConnection';
-  items?: Maybe<Array<Maybe<MyModelTypeTable>>>;
-  nextToken?: Maybe<Scalars['String']['output']>;
+  items: Maybe<Array<Maybe<MyModelTypeTable>>>;
+  nextToken: Maybe<Scalars['String']['output']>;
 };
 
 export type Query = {
-  __typename?: 'Query';
-  getMyModelTypeTable?: Maybe<MyModelTypeTable>;
-  listMyModelTypeTables?: Maybe<MyModelTypeTableConnection>;
+  getMyModelTypeTable: Maybe<MyModelTypeTable>;
+  listMyModelTypeTables: Maybe<MyModelTypeTableConnection>;
 };
 
 
@@ -84,37 +80,36 @@ export type QueryGetMyModelTypeTableArgs = {
 
 
 export type QueryListMyModelTypeTablesArgs = {
-  filter?: InputMaybe<TableMyModelTypeTableFilterInput>;
-  limit?: InputMaybe<Scalars['Int']['input']>;
-  nextToken?: InputMaybe<Scalars['String']['input']>;
+  filter: InputMaybe<TableMyModelTypeTableFilterInput>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  nextToken: InputMaybe<Scalars['String']['input']>;
 };
 
 export type Subscription = {
-  __typename?: 'Subscription';
-  onCreateMyModelTypeTable?: Maybe<MyModelTypeTable>;
-  onDeleteMyModelTypeTable?: Maybe<MyModelTypeTable>;
-  onUpdateMyModelTypeTable?: Maybe<MyModelTypeTable>;
+  onCreateMyModelTypeTable: Maybe<MyModelTypeTable>;
+  onDeleteMyModelTypeTable: Maybe<MyModelTypeTable>;
+  onUpdateMyModelTypeTable: Maybe<MyModelTypeTable>;
 };
 
 
 export type SubscriptionOnCreateMyModelTypeTableArgs = {
-  age?: InputMaybe<Scalars['Int']['input']>;
-  id?: InputMaybe<Scalars['String']['input']>;
-  name?: InputMaybe<Scalars['String']['input']>;
+  age: InputMaybe<Scalars['Int']['input']>;
+  id: InputMaybe<Scalars['String']['input']>;
+  name: InputMaybe<Scalars['String']['input']>;
 };
 
 
 export type SubscriptionOnDeleteMyModelTypeTableArgs = {
-  age?: InputMaybe<Scalars['Int']['input']>;
-  id?: InputMaybe<Scalars['String']['input']>;
-  name?: InputMaybe<Scalars['String']['input']>;
+  age: InputMaybe<Scalars['Int']['input']>;
+  id: InputMaybe<Scalars['String']['input']>;
+  name: InputMaybe<Scalars['String']['input']>;
 };
 
 
 export type SubscriptionOnUpdateMyModelTypeTableArgs = {
-  age?: InputMaybe<Scalars['Int']['input']>;
-  id?: InputMaybe<Scalars['String']['input']>;
-  name?: InputMaybe<Scalars['String']['input']>;
+  age: InputMaybe<Scalars['Int']['input']>;
+  id: InputMaybe<Scalars['String']['input']>;
+  name: InputMaybe<Scalars['String']['input']>;
 };
 
 export type TableBooleanFilterInput = {
@@ -190,7 +185,7 @@ export type UpdateMyModelTypeTableInput = {
 export type ListMyModelTypeTablesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type ListMyModelTypeTablesQuery = { __typename?: 'Query', listMyModelTypeTables?: { __typename?: 'MyModelTypeTableConnection', items?: Array<{ __typename?: 'MyModelTypeTable', id: string, name: string, age?: number | null } | null> | null } | null };
+export type ListMyModelTypeTablesQuery = { listMyModelTypeTables: { items: Array<{ id: string, name: string, age: number | null } | null> | null } | null };
 
 
 export const ListMyModelTypeTablesDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"listMyModelTypeTables"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"listMyModelTypeTables"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"items"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"age"}}]}}]}}]}}]} as unknown as DocumentNode<ListMyModelTypeTablesQuery, ListMyModelTypeTablesQueryVariables>;
