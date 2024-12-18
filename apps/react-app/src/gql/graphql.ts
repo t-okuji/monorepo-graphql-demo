@@ -187,5 +187,13 @@ export type ListMyModelTypeTablesQueryVariables = Exact<{ [key: string]: never; 
 
 export type ListMyModelTypeTablesQuery = { listMyModelTypeTables: { items: Array<{ id: string, name: string, age: number | null } | null> | null } | null };
 
+export type CreateMyModelTypeTableMutationVariables = Exact<{
+  input: CreateMyModelTypeTableInput;
+}>;
+
+
+export type CreateMyModelTypeTableMutation = { createMyModelTypeTable: { id: string, name: string, age: number | null } | null };
+
 
 export const ListMyModelTypeTablesDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"listMyModelTypeTables"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"listMyModelTypeTables"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"items"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"age"}}]}}]}}]}}]} as unknown as DocumentNode<ListMyModelTypeTablesQuery, ListMyModelTypeTablesQueryVariables>;
+export const CreateMyModelTypeTableDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"createMyModelTypeTable"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"input"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"CreateMyModelTypeTableInput"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"createMyModelTypeTable"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"input"},"value":{"kind":"Variable","name":{"kind":"Name","value":"input"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"age"}}]}}]}}]} as unknown as DocumentNode<CreateMyModelTypeTableMutation, CreateMyModelTypeTableMutationVariables>;

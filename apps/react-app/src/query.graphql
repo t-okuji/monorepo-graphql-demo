@@ -7,3 +7,11 @@ query listMyModelTypeTables {
     }
   }
 }
+
+mutation createMyModelTypeTable($input: CreateMyModelTypeTableInput!) {
+  createMyModelTypeTable(input: $input) {
+    id
+    name
+    age
+  }
+}
