@@ -26,5 +26,10 @@
     "core-js": "^3.36.1",
     "react-refresh": "^0.14.0",
     "typescript": "^5.7.2"
+  },
+  "msw": {
+    "workerDirectory": [
+      "public"
+    ]
   }
 }

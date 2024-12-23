@@ -1,10 +1,10 @@
 import type { CodegenConfig } from "@graphql-codegen/cli";
 
 const config: CodegenConfig = {
-  schema: "schema.graphql",
-  documents: ["**/*.graphql"],
+  schema: "../../schema.graphql",
+  documents: ["../../apps/react-app/src/**/*.graphql"],
   generates: {
-    "./src/gql/": {
+    "./gql/": {
       preset: "client",
       plugins: [
         "typescript-msw",

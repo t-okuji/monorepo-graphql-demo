@@ -1,11 +1,15 @@
 import { HttpResponse } from "msw";
-import { mockGetUserQuery, mockUser } from "./src/gql/graphql";
+import {
+  mockListMyModelTypeTablesQuery,
+  mockMyModelTypeTable,
+} from "./gql/graphql";
 
 export const handlers = [
-  mockGetUserQuery(() => {
+  mockListMyModelTypeTablesQuery(() => {
+    console.log("aa");
     return HttpResponse.json({
       data: {
-        getUser: mockUser(),
+        listMyModelTypeTables: { items: [mockMyModelTypeTable()] },
       },
     });
   }),

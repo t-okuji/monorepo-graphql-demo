@@ -14,7 +14,7 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  * Learn more about it here: https://the-guild.dev/graphql/codegen/plugins/presets/preset-client#reducing-bundle-size
  */
 const documents = {
-    "query GetUser($id: ID!) {\n  getUser(id: $id) {\n    id\n    name\n    email\n  }\n}": types.GetUserDocument,
+    "query listMyModelTypeTables {\n  listMyModelTypeTables {\n    items {\n      id\n      name\n      age\n    }\n  }\n}\n\nmutation createMyModelTypeTable($input: CreateMyModelTypeTableInput!) {\n  createMyModelTypeTable(input: $input) {\n    id\n    name\n    age\n  }\n}": types.ListMyModelTypeTablesDocument,
 };
 
 /**
@@ -34,7 +34,7 @@ export function graphql(source: string): unknown;
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "query GetUser($id: ID!) {\n  getUser(id: $id) {\n    id\n    name\n    email\n  }\n}"): (typeof documents)["query GetUser($id: ID!) {\n  getUser(id: $id) {\n    id\n    name\n    email\n  }\n}"];
+export function graphql(source: "query listMyModelTypeTables {\n  listMyModelTypeTables {\n    items {\n      id\n      name\n      age\n    }\n  }\n}\n\nmutation createMyModelTypeTable($input: CreateMyModelTypeTableInput!) {\n  createMyModelTypeTable(input: $input) {\n    id\n    name\n    age\n  }\n}"): (typeof documents)["query listMyModelTypeTables {\n  listMyModelTypeTables {\n    items {\n      id\n      name\n      age\n    }\n  }\n}\n\nmutation createMyModelTypeTable($input: CreateMyModelTypeTableInput!) {\n  createMyModelTypeTable(input: $input) {\n    id\n    name\n    age\n  }\n}"];
 
 export function graphql(source: string) {
   return (documents as any)[source] ?? {};

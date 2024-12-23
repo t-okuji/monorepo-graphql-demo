@@ -18,9 +18,23 @@ const container = document.querySelector("#root");
 if (container) {
   const root = createRoot(container);
 
-  root.render(
-    <Provider value={client}>
-      <Main />
-    </Provider>
-  );
+  async function enableMocking() {
+    if (process.env.FARM_STAGE !== "development") {
+      return;
+    }
+
+    const { worker } = await import("../../../mock/msw/browser");
+
+    // `worker.start()` returns a Promise that resolves
+    // once the Service Worker is up and ready to intercept requests.
+    return worker.start();
+  }
+
+  enableMocking().then(() => {
+    root.render(
+      <Provider value={client}>
+        <Main />
+      </Provider>
+    );
+  });
 }
