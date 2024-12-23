@@ -1,5 +1,7 @@
 import { HttpResponse } from "msw";
 import {
+  mockCreateMyModelTypeTableInput,
+  mockCreateMyModelTypeTableMutation,
   mockListMyModelTypeTablesQuery,
   mockMyModelTypeTable,
 } from "./gql/graphql";
@@ -8,7 +10,23 @@ export const handlers = [
   mockListMyModelTypeTablesQuery(() => {
     return HttpResponse.json({
       data: {
-        listMyModelTypeTables: { items: [mockMyModelTypeTable()] },
+        listMyModelTypeTables: {
+          items: [
+            { ...mockMyModelTypeTable(), __typename: "MyModelTypeTable" },
+          ],
+        },
+      },
+    });
+  }),
+  mockCreateMyModelTypeTableMutation(({ query, variables }) => {
+    console.log(query);
+    console.log(variables);
+    return HttpResponse.json({
+      data: {
+        createMyModelTypeTable: {
+          ...mockCreateMyModelTypeTableInput(),
+          __typename: "MyModelTypeTable",
+        },
       },
     });
   }),
