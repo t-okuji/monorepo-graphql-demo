@@ -29,6 +29,18 @@ const config: CodegenConfig = {
         enumsAsTypes: true,
       },
     },
+    // mock server
+    "./msw/gql/": {
+      preset: "client",
+      plugins: [
+        "typescript-msw",
+        {
+          "graphql-codegen-typescript-mock-data": {
+            prefix: "mock",
+          },
+        },
+      ],
+    },
   },
 };
 

@@ -6,7 +6,6 @@ import {
 
 export const handlers = [
   mockListMyModelTypeTablesQuery(() => {
-    console.log("aa");
     return HttpResponse.json({
       data: {
         listMyModelTypeTables: { items: [mockMyModelTypeTable()] },

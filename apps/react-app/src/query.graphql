@@ -3,6 +3,7 @@ query listMyModelTypeTables {
     items {
       id
       name
+      age
     }
   }
 }

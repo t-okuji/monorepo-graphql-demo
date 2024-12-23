@@ -23,7 +23,7 @@ if (container) {
       return;
     }
 
-    const { worker } = await import("../../../mock/msw/browser");
+    const { worker } = await import("../msw/browser");
 
     // `worker.start()` returns a Promise that resolves
     // once the Service Worker is up and ready to intercept requests.
