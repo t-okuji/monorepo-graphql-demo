@@ -1,0 +1,22 @@
+version: "3"
+
+silent: true
+
+tasks:
+  default:
+    desc: List all tasks
+    aliases:
+      - list
+    cmd: task --list
+
+  dev:react:
+    desc: Start dev server
+    dir: ./apps/react-app
+    cmds:
+      - bun run dev
+
+  codegen:react:
+    desc: Using GraphQL Code Generator
+    dir: ./apps/react-app
+    cmds:
+      - bunx graphql-codegen
