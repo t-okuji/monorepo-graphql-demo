@@ -16,7 +16,13 @@ tasks:
       - bun run dev
 
   codegen:react:
-    desc: Using GraphQL Code Generator
+    desc: Using GraphQL Code Generator for react
     dir: ./apps/react-app
     cmds:
       - bunx graphql-codegen
+
+  codegen:flutter:
+    desc: Using GraphQL Code Generator for flutter
+    dir: ./apps/flutter_app
+    cmds:
+      - dart run build_runner build

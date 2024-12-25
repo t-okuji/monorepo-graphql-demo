@@ -1,0 +1,17 @@
+query listMyModelTypeTables {
+  listMyModelTypeTables {
+    items {
+      id
+      name
+      age
+    }
+  }
+}
+
+mutation createMyModelTypeTable($input: CreateMyModelTypeTableInput!) {
+  createMyModelTypeTable(input: $input) {
+    id
+    name
+    age
+  }
+}
