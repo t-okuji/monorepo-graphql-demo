@@ -26,3 +26,9 @@ tasks:
     dir: ./apps/flutter_app
     cmds:
       - dart run build_runner build
+
+  mock:server:
+    desc: Run Apollo Server for mock
+    dir: ./apollo-mock/src
+    cmds:
+      - bun run server.ts
