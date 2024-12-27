@@ -1,7 +1,7 @@
 import { ApolloServer } from "@apollo/server";
 import { readFileSync } from "fs";
 import { resolve } from "path";
-import { addMocksToSchema, MockList } from "@graphql-tools/mock";
+import { addMocksToSchema } from "@graphql-tools/mock";
 import { makeExecutableSchema } from "@graphql-tools/schema";
 import { faker } from "@faker-js/faker";
 import { ApolloServerPluginDrainHttpServer } from "@apollo/server/plugin/drainHttpServer";

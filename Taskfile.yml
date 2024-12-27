@@ -35,7 +35,7 @@ tasks:
 
   install:mock:
     desc: Install packages
-    dir: ./apollo-mock
+    dir: ./mock
     cmds:
       - bun install
 
@@ -53,6 +53,6 @@ tasks:
 
   dev:mock:
     desc: Run Apollo Server for mock
-    dir: ./apollo-mock/src
+    dir: ./mock/src
     cmds:
       - bun --hot run server.ts
