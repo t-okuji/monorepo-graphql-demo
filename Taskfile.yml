@@ -9,11 +9,35 @@ tasks:
       - list
     cmd: task --list
 
+  install:
+    desc: Install packages
+    cmds:
+      - task: install:react
+      - task: install:mock
+
+  code:
+    desc: Open Vscode in root
+    dir: ./
+    cmds:
+      - code .
+
   dev:react:
     desc: Start dev server
     dir: ./apps/react-app
     cmds:
       - bun run dev
+
+  install:react:
+    desc: Install packages
+    dir: ./apps/react-app
+    cmds:
+      - bun install
+
+  install:mock:
+    desc: Install packages
+    dir: ./apollo-mock
+    cmds:
+      - bun install
 
   codegen:react:
     desc: Using GraphQL Code Generator for react
@@ -27,8 +51,8 @@ tasks:
     cmds:
       - dart run build_runner build
 
-  mock:server:
+  dev:mock:
     desc: Run Apollo Server for mock
     dir: ./apollo-mock/src
     cmds:
-      - bun run server.ts
+      - bun --hot run server.ts
