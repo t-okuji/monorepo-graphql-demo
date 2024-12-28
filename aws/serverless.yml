@@ -1,0 +1,46 @@
+service: appsync-serverless
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+
+custom:
+  appSync:
+    name: backend
+    authenticationType: API_KEY
+    schema: ./schema.graphql
+    dataSources:
+      - type: AWS_LAMBDA
+        name: lambda_datasource
+        description: "Lambda DataSource for appInfo"
+        config:
+          functionName: sample
+          iamRoleStatements:
+            - Effect: "Allow"
+              Action:
+                - "lambda:invokeFunction"
+              Resource:
+                - "*"
+    defaultMappingTemplates:
+      request: false
+      response: false
+    mappingTemplates:
+      - dataSource: lambda_datasource
+        type: Query
+        field: sample
+      - dataSource: lambda_datasource
+        type: Query
+        field: sample2
+  appsync-simulator:
+    location: ".webpack/service"
+    apiKey: ${env:API_KEY}
+    watch: true
+
+functions:
+  sample:
+    handler: handler.sample
+
+plugins:
+  - serverless-appsync-plugin
+  - serverless-appsync-simulator
+  - serverless-offline

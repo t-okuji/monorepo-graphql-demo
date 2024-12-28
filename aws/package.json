@@ -1,0 +1,14 @@
+{
+  "name": "appsync-serverless",
+  "version": "1.0.0",
+  "dependencies": {
+    "serverless-appsync-plugin": "^2.9.1",
+    "serverless-appsync-simulator": "^0.20.0",
+    "serverless-offline": "^14.4.0"
+  },
+  "overrides": {
+    "cfn-resolver-lib": "1.1.7",
+    "graphql": "15.9.0",
+    "**/graphql": "15.9.0"
+  }
+}
